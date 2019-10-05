@@ -11,17 +11,26 @@ class NbaController {
     $this->view = new NbaView();
   }
 
-  function equiposTabla(){
-    $equipos = $this->model->getEquipos();
-    $this->view->displayEquipos($equipos);
+  function teamsTable(){
+    $equipos = $this->model->getTeams();
+    $this->view->displayTeams($equipos);
   }
 
-  function insertEquipo(){
-    $this->model->insertEquipo($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
+  function insertTeam(){
+    $this->model->insertTeam($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
     header("Location: " . BASE_URL);
   }
-  function deletEquipo($id){
-    $this->model->deletEquipo($id);
+  function deletTeam($id){
+    $this->model->deletTeam($id);
+    header("Location: " . BASE_URL);
+  }
+
+  function editTeam($id){
+    $team = $this->model->getTeam($id);
+    $this->view->editTeam("Editar Equipo", $team);
+  }
+  function updateTeam(){
+    $this->model->updateTeam($_POST['id_equipo'],$_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
     header("Location: " . BASE_URL);
   }
 }

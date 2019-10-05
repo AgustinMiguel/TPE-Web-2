@@ -6,17 +6,23 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 
 $controller = new NbaController();
 if($action == ''){
-    $controller->equiposTabla();
+    $controller->teamsTable();
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);
-        if($partesURL[0] == "tabla"){
-            $controller->equiposTabla();
+        if($partesURL[0] == "table"){
+            $controller->teamsTable();
         }elseif($partesURL[0] == "agregar"){
-              $controller->insertEquipo();
+              $controller->insertTeam();
         }
       elseif($partesURL[0] == "delete"){
-              $controller->deletEquipo($partesURL[1]);
+              $controller->deletTeam($partesURL[1]);
+        }
+      elseif($partesURL[0] == "edit"){
+              $controller->editTeam($partesURL[1]);
+        }
+      elseif($partesURL[0] == "update"){
+              $controller->updateTeam();
         }
     }
   }
