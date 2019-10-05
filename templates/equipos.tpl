@@ -18,7 +18,7 @@
                   <th scope="col"> {$equipo->nombre_equipo} </th>
                   <th scope="col"> {$equipo->partidos_ganados} </th>
                   <th scope="col"> {$equipo->partidos_perdidos} </th>
-                  <th scope="col"> <a href="borrar/ {$equipo->id_equipo} ">BORRAR</th>
+                  <th scope="col"> <a href="delete/ {$equipo->id_equipo} ">BORRAR</th>
                   <th scope="col"> <a href="editar/ {$equipo->id_equipo} ">EDITAR</th>
                   <th scope="col"> <a href="verJugadores/{$equipo->id_equipo}">VER JUGADORES</th>
             </tr>

@@ -16,5 +16,10 @@ class NbaModel {
         $sentencia = $this->db->prepare("INSERT INTO equipos(nombre_equipo, partidos_ganados,partidos_perdidos) VALUES(?,?,?)");
         $sentencia->execute(array($nombre_equipo,$partidos_ganados,$partidos_perdidos));
     }
+
+    public function deletEquipo($id){
+        $sentencia = $this->db->prepare("DELETE FROM equipos WHERE id_equipo=?");
+        $sentencia->execute(array($id));
+    }
   }
 ?>

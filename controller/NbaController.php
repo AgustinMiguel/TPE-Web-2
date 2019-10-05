@@ -20,6 +20,10 @@ class NbaController {
     $this->model->insertEquipo($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
     header("Location: " . BASE_URL);
   }
+  function deletEquipo($id){
+    $this->model->deletEquipo($id);
+    header("Location: " . BASE_URL);
+  }
 }
 
 ?>

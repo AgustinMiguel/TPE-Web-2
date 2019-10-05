@@ -14,7 +14,10 @@ if($action == ''){
             $controller->equiposTabla();
         }elseif($partesURL[0] == "agregar"){
               $controller->insertEquipo();
-          }
+        }
+      elseif($partesURL[0] == "delete"){
+              $controller->deletEquipo($partesURL[1]);
         }
     }
+  }
 ?>
