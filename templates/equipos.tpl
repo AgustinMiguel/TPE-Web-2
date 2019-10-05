@@ -34,15 +34,15 @@
     <form method="post" action="agregar">
       <div class="form-group">
         <label for="equipoForm">Nombre Equipo</label>
-        <input type="text" class="form-control" id="equipoForm" name="equipoForm">
+        <input type="text" class="form-control" id="equipoForm" name="nombre_equipo">
       </div>
       <div class="form-group">
         <label for="ganadosForm">Partidos ganados</label>
-        <input type="text" class="form-control" id="ganadosForm" name="ganadosForm">
+        <input type="text" class="form-control" id="ganadosForm" name="partidos_ganados">
       </div>
       <div class="form-group">
         <label for="perdidosForm">Partidos perdidos</label>
-        <input type="text" class="form-control" id="perdidosForm" name="perdidosForm">
+        <input type="text" class="form-control" id="perdidosForm" name="partidos_perdidos">
       </div>
       <button type="submit" class="btn btn-primary">Agregar Equipo</button>
     </form>

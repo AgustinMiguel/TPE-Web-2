@@ -15,5 +15,11 @@ class NbaController {
     $equipos = $this->model->getEquipos();
     $this->view->displayEquipos($equipos);
   }
+
+  function insertEquipo(){
+    $this->model->insertEquipo($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
+    header("Location: " . BASE_URL);
+  }
 }
- ?>
+
+?>
