@@ -3,10 +3,11 @@ require_once "controller/NbaController.php";
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("URL_TABLE", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/table');
 
 $controller = new NbaController();
 if($action == ''){
-    $controller->teamsTable();
+    $controller->home();
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);
@@ -26,4 +27,3 @@ if($action == ''){
         }
     }
   }
-?>

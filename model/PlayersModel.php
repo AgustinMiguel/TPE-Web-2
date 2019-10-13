@@ -1,5 +1,4 @@
-<?php
-
+##
 class ClassName PlayersModel{
 
   function __construct(){
@@ -21,4 +20,3 @@ class ClassName PlayersModel{
         $sentencia->execute(array($id_jugador));
   }
 }
-?>

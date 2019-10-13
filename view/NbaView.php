@@ -5,6 +5,12 @@ class NbaView {
   function __construct(){
   }
 
+  public function displayHome($titulo){
+        $smarty = new Smarty();
+        $smarty->assign('Titulo',$titulo);
+        $smarty->display('templates/home.tpl');
+  }
+
   public function displayTeams($equipos){
         $smarty = new Smarty();
         $smarty->assign('Titulo',"Tabla");
@@ -20,5 +26,3 @@ class NbaView {
         $smarty->display('templates/editTeam.tpl');
   }
 }
-
-?>

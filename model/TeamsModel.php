@@ -33,4 +33,3 @@ class TeamsModel {
         $sentencia->execute(array($id_equipo));
     }
   }
-?>
