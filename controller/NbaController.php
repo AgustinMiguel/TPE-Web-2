@@ -1,27 +1,27 @@
 <?php
-require_once "./model/NbaModel.php";
+require_once "./model/TeamsModel.php";
 require_once "./view/NbaView.php";
 
 class NbaController {
-  private $model;
+  private $teamsModel;
   private $view;
 
   function __construct(){
-    $this->model = new NbaModel();
+    $this->teamsModel = new TeamsModel();
     $this->view = new NbaView();
   }
 
   function teamsTable(){
-    $equipos = $this->model->getTeams();
+    $equipos = $this->teamsModel->getTeams();
     $this->view->displayTeams($equipos);
   }
 
   function insertTeam(){
-    $this->model->insertTeam($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
+    $this->teamsModel->insertTeam($_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
     header("Location: " . BASE_URL);
   }
   function deletTeam($id){
-    $this->model->deletTeam($id);
+    $this->teamsModel->deletTeam($id);
     header("Location: " . BASE_URL);
   }
 
