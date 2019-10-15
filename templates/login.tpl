@@ -1,13 +1,13 @@
 {include file="headerVisitante.tpl"}
     <h1>{$Titulo}</h1>
-    <form method="post" action="verificarLogin">
+    <form method="post" action="startSesion">
       <div class="form-group">
         <label for="exampleInputEmail1">Usuario</label>
-        <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Enter email">
+        <input type="input" class="form-control" name="user" id="usuarioId" aria-describedby="usuarioId" placeholder="Enter email">
         </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="password">
+        <input type="password" class="form-control" name="password" id="passwordId" placeholder="password">
       </div>
       <div class="">
         {$Message}

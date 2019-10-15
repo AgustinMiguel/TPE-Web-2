@@ -32,7 +32,7 @@ class NbaController {
 
   function editTeam($id){
     $team = $this->teamsModel->getTeam($id);
-    $this->view->editTeam("Editar Equipo", $team);
+    $this->view->editTeam( $team);
   }
   function updateTeam(){
     $this->teamsModel->updateTeam($_POST['id_equipo'],$_POST['nombre_equipo'],$_POST['partidos_ganados'],$_POST['partidos_perdidos']);
