@@ -22,13 +22,13 @@
           <a class="nav-link" href="" id="botonHome">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="table" id="botonTabla">Regular Season</a>
+          <a class="nav-link" href="teams" id="botonTabla">Regular Season</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="jugadoresadmin" id="botonLista">All-Star</a>
+          <a class="nav-link" href="players" id="botonLista">All-Star</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout" id="botonLogout">Logout</a>
+          <a class="nav-link" href="login" id="botonLogin">Login</a>
         </li>
       </ul>
     </div>

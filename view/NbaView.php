@@ -13,11 +13,20 @@ class NbaView {
 
   public function displayTeams($equipos){
         $smarty = new Smarty();
-        $smarty->assign('Titulo',"Tabla");
+        $smarty->assign('Titulo',"Tabla Equpos");
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('equipos',$equipos);
         $smarty->display('templates/teamsTable.tpl');
     }
+
+    public function displayPlayers($players){
+          $smarty = new Smarty();
+          $smarty->assign('Titulo',"Tabla Jugadores");
+          $smarty->assign('BASE_URL',BASE_URL);
+          $smarty->assign('players',$players);
+          $smarty->display('templates/playersTable.tpl');
+      }
+
   public function editTeam  ($equipo){
         $smarty = new Smarty();
         $smarty->assign('Titulo',"EditarEquipo");

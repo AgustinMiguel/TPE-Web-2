@@ -14,23 +14,25 @@ class LoginController {
 
     public function startSesion(){
         $password = $_POST['password'];
-        $usuario = $this->model->GetPassword($_POST['user']);
-        if (isset($usuario) && $usuario != null && password_verify($password, $usuario->password)){
+        $usuario = $this->model->getPassword($_POST['user']);
+
+        if (isset($usuario) && $usuario != null && password_verify($password, $usuario->contraseña)){
             session_start();
             $_SESSION['user'] = $usuario->usuario;
             $_SESSION['userId'] = $usuario->id;
             header("Location: " . URL_TABLE);
+            var_dump($usuario);
+            die;
         }else{
-            header("Location: " . URL_BASE);
+            header("Location: " . URL_LOGIN);
         }
-       // header("Location: " . BASE_URL);
     }
 
-    public function Login(){
+    public function login(){
         $this->view->DisplayLogin();
     }
 
-    public function Logout(){
+    public function logout(){
         session_start();
         session_destroy();
         header("Location: " . URL_LOGIN);

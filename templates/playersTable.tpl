@@ -14,15 +14,15 @@
             </tr>
           </thead>
         <tbody class="contenedor-tabla" >
-          {foreach from=$Jugadores item=jugador}
+          {foreach from=$players item=player}
             <tr>
-                  <th scope="col">{$jugador['nombre_jugador']}</th>
-                  <th scope="col">{$jugador['procedencia']}</th>
-                  <th scope="col">{$jugador['id_jugador']}</th>
-                  <th scope="col">{$jugador['nombre_equipo']}</th>
-                  <th scope="col"> <a href="borrarJugador/{$jugador['id_jugador']}">BORRAR</th>
-                  <th scope="col"> <a href="editarJugador/{$jugador['id_jugador']}">EDITAR</th>
-                  <th scope="col"> <a href="verJugadorAdmin/{$jugador['id_jugador']}">VER MAS</th>
+                  <th scope="col">{$player->nombre_jugador}</th>
+                  <th scope="col">{$player->procedencia}</th>
+                  <th scope="col">{$player->id_jugador}</th>
+                  <th scope="col">{$player->nombre_equipo}</th>
+                  <th scope="col"> <a href="borrarJugador/{$player->id_jugador}">BORRAR</th>
+                  <th scope="col"> <a href="editarJugador/{$player->id_jugador}">EDITAR</th>
+                  <th scope="col"> <a href="verJugadorAdmin/{$player->id_jugador}">VER MAS</th>
             </tr>
         {/foreach}
       </tbody>
