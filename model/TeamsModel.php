@@ -28,7 +28,7 @@ class TeamsModel {
       $sentencia->execute(array($nombre_equipo, $partidos_ganados, $partidos_perdidos,$id_equipo,));
     }
 
-    public function deletTeam($id_equipo){
+    public function deleteTeam($id_equipo){
         $sentencia = $this->db->prepare("delete from equipos WHERE id_equipo=?");
         $sentencia->execute(array($id_equipo));
     }

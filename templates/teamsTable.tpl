@@ -18,9 +18,9 @@
                   <th scope="col"> {$equipo->nombre_equipo} </th>
                   <th scope="col"> {$equipo->partidos_ganados} </th>
                   <th scope="col"> {$equipo->partidos_perdidos} </th>
-                  <th scope="col"> <a href="delete/ {$equipo->id_equipo} ">BORRAR</th>
-                  <th scope="col"> <a href="edit/ {$equipo->id_equipo} ">EDITAR</th>
-                  <th scope="col"> <a href="verJugadores/{$equipo->id_equipo}">VER JUGADORES</th>
+                  <th scope="col"> <a href="deleteTeam/ {$equipo->id_equipo} ">BORRAR</th>
+                  <th scope="col"> <a href="editTeam/ {$equipo->id_equipo} ">EDITAR</th>
+                  <th scope="col"> <a href="showPlayers/{$equipo->id_equipo}">VER JUGADORES</th>
             </tr>
         {/foreach}
       </tbody>
@@ -31,7 +31,7 @@
     <br>
     <br>
     <h2>Equipo</h2>
-    <form method="post" action="agregar">
+    <form method="post" action="addTeam">
       <div class="form-group">
         <label for="equipoForm">Nombre Equipo</label>
         <input type="text" class="form-control" id="equipoForm" name="nombre_equipo">

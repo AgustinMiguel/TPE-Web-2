@@ -20,9 +20,7 @@ class LoginController {
             session_start();
             $_SESSION['user'] = $usuario->usuario;
             $_SESSION['userId'] = $usuario->id;
-            header("Location: " . URL_TABLE);
-            var_dump($usuario);
-            die;
+            header("Location: " . URL_HOME);
         }else{
             header("Location: " . URL_LOGIN);
         }
@@ -35,6 +33,6 @@ class LoginController {
     public function logout(){
         session_start();
         session_destroy();
-        header("Location: " . URL_LOGIN);
+        header("Location: " . URL_HOME);
+        }
     }
-}

@@ -20,39 +20,41 @@
                   <th scope="col">{$player->procedencia}</th>
                   <th scope="col">{$player->id_jugador}</th>
                   <th scope="col">{$player->nombre_equipo}</th>
-                  <th scope="col"> <a href="borrarJugador/{$player->id_jugador}">BORRAR</th>
-                  <th scope="col"> <a href="editarJugador/{$player->id_jugador}">EDITAR</th>
-                  <th scope="col"> <a href="verJugadorAdmin/{$player->id_jugador}">VER MAS</th>
+                  <th scope="col"> <a href="deletePlayer/{$player->id_jugador}">BORRAR</th>
+                  <th scope="col"> <a href="editPlayer/{$player->id_jugador}">EDITAR</th>
+                  <th scope="col"> <a href="showPlayer/{$player->id_jugador}">VER MAS</th>
             </tr>
         {/foreach}
       </tbody>
     </table>
   </div>
-  <a href="jugadoresordenadosadmin/">Ordenar jugadores</a>
+
+  <form method="get" action="orderPlayers" enctype="multipart/form-data">
+    <button type="submit" class="btn btn-dark">Ordenar Jugadores</button>
+  </form>
 
   <div class="container-fluid">
     <br>
     <br>
     <h2>Jugador</h2>
-    <form method="post" action="agregarJugador" enctype="multipart/form-data">
+    <form method="post" action="addPlayer" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="nombreForm">Nombre Jugador</label>
-        <input type="text" class="form-control" id="nombreForm" name="nombreForm">
+        <label for="nombreForm">Nombre Jugador :</label>
+        <input type="text" class="form-control" id="nombre_jugador" name="nombre_jugador">
       </div>
       <div class="form-group">
-        <label for="lugarForm">Procedencia</label>
-        <input type="text" class="form-control" id="lugarForm" name="lugarForm">
+        <label for="lugarForm">Procedencia :</label>
+        <input type="text" class="form-control" id="procedencia" name="procedencia">
       </div>
       <div class="form-group">
-        <label for="idForm">id equipo</label>
-        <input type="text" class="form-control" id="idForm" name="idForm">
-      </div>
-      <div class="form-group">
-        <label for="imagenes">Imagen</label>
-        <input type="file" id="imagenes" name="imagenes[]" class="" multiple>
+        <label for="idForm">ID :</label>
+        <input type="text" class="form-control" id="idForm" name="id_equipo">
       </div>
       <button type="submit" class="btn btn-dark">Agregar Jugador</button>
     </form>
+    <div class="">
+
+    </div>
   </div>
 <div class="container-fluid">
 </div>

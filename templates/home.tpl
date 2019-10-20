@@ -1,4 +1,8 @@
-{include file="header.tpl"}
+{if $login == true}
+	{include file="headerLogout.tpl"}
+{else}
+	{include file="header.tpl"}
+{/if}
 <body>
 <div class="row">
   <div class="col-12 col-sm-12 col-md-8 contenido" id="equipos-container">
