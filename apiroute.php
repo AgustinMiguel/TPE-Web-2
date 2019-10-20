@@ -14,11 +14,11 @@ $method = $_SERVER["REQUEST_METHOD"];
 $router = new Router();
 
 // arma la tabla de ruteo
-$router->addRoute("teams", "GET", "ApiNbaController", "teamsTable");
+$router->addRoute("teams", "GET", "ApiNbaController", "getTeams");
 $router->addRoute("teams/:ID", "GET", "ApiNbaController", "getTeam");
-$router->addRoute("tareas/:ID", "DELETE", "ApiNbaController", "deleteTask");
-$router->addRoute("tareas", "POST", "ApiNbaController", "addTask");
-$router->addRoute("tareas/:ID", "PUT", "ApiNbaController", "updateTask");
+$router->addRoute("teams/:ID", "DELETE", "ApiNbaController", "deleteTeam");
+$router->addRoute("teams", "POST", "ApiNbaController", "addTeam");
+$router->addRoute("teams/:ID", "PUT", "ApiNbaController", "updateTeam");
 
 
 // rutea
