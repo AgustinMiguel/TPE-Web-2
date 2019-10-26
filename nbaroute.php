@@ -3,24 +3,22 @@ require_once "Router.php";
 require_once "controller/NbaController.php";
 require_once "controller/LoginController.php";
 
-
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("URL_HOME", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/home');
+define("URL_ADMHOME", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/admhome');
 define("URL_TEAMS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/teams');
 define("URL_PLAYERS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/players');
 define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
-// recurso solicitado
+
 $resource = $_GET["resource"];
 
-// método utilizado
 $method = $_SERVER["REQUEST_METHOD"];
 
-// instancia el router
 $router = new Router();
 
-// arma la tabla de ruteo
 $router->addRoute("home", "GET", "NbaController", "home");
+$router->addRoute("admhome", "GET", "NbaController", "admhome");
 $router->addRoute("teams", "GET", "NbaController", "teamsTable");
 $router->addRoute("players", "GET", "NbaController", "playersTable");
 $router->addRoute("showPlayers/:ID", "GET", "NbaController", "getTeamPlayers");
@@ -40,5 +38,4 @@ $router->addRoute("startSesion", "POST", "LoginController", "startSesion");
 
 $router->setDefaultRoute("NbaController", "home");
 
-// rutea
 $router->route($resource, $method);

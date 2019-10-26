@@ -1,4 +1,8 @@
-{include file="header.tpl"}
+{if $login eq true}
+  {include file="headerLogout.tpl"}
+{else}
+  {include file="header.tpl"}
+{/if}
   <body>
   <div class="container-fluid">
     <table class="table table-hover">

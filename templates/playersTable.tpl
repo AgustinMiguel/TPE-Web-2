@@ -1,4 +1,8 @@
-{include file="header.tpl"}
+{if $login eq true}
+  {include file="headerLogout.tpl"}
+{else}
+  {include file="header.tpl"}
+{/if}
   <body>
   <div class="container-fluid">
     <table class="table table-hover">
@@ -6,9 +10,7 @@
           <tr>
                   <th scope="col">Nombre</th>
                   <th scope="col">Procedencia</th>
-                  <th scope="col">Id jugador</th>
                   <th scope="col">Nombre Equipo </th>
-                  <th scope="col"> </th>
                   <th scope="col"> </th>
                   <th scope="col"> </th>
             </tr>
@@ -18,11 +20,14 @@
             <tr>
                   <th scope="col">{$player->nombre_jugador}</th>
                   <th scope="col">{$player->procedencia}</th>
-                  <th scope="col">{$player->id_jugador}</th>
                   <th scope="col">{$player->nombre_equipo}</th>
+                  {if $login eq true}
                   <th scope="col"> <a href="deletePlayer/{$player->id_jugador}">BORRAR</th>
                   <th scope="col"> <a href="editPlayer/{$player->id_jugador}">EDITAR</th>
                   <th scope="col"> <a href="showPlayer/{$player->id_jugador}">VER MAS</th>
+                  {else}
+                  <th scope="col"> <a href="showPlayer/{$player->id_jugador}">VER MAS</th>
+                  {/if}
             </tr>
         {/foreach}
       </tbody>
@@ -32,7 +37,7 @@
   <form method="get" action="orderPlayers" enctype="multipart/form-data">
     <button type="submit" class="btn btn-dark">Ordenar Jugadores</button>
   </form>
-
+{if $login eq true}
   <div class="container-fluid">
     <br>
     <br>
@@ -47,7 +52,7 @@
         <input type="text" class="form-control" id="procedencia" name="procedencia">
       </div>
       <div class="form-group">
-        <label for="idForm">ID :</label>
+        <label for="idForm">ID Equipo :</label>
         <input type="text" class="form-control" id="idForm" name="id_equipo">
       </div>
       <button type="submit" class="btn btn-dark">Agregar Jugador</button>
@@ -56,6 +61,7 @@
 
     </div>
   </div>
+{/if}
 <div class="container-fluid">
 </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

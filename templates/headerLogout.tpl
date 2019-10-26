@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="" id="botonHome">Home</a>
+          <a class="nav-link" href="admhome" id="botonHome">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="teams" id="botonTabla">Regular Season</a>
@@ -27,7 +27,7 @@
           <a class="nav-link" href="players" id="botonLista">All-Star</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout" id="botonLogin">Logout</a>
+          <a class="nav-link" href="logout" id="botonLogout">Logout</a>
         </li>
       </ul>
     </div>
