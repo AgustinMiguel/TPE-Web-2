@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2019 a las 23:13:05
+-- Tiempo de generación: 31-10-2019 a las 20:15:04
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -40,8 +40,8 @@ CREATE TABLE `equipos` (
 --
 
 INSERT INTO `equipos` (`id_equipo`, `nombre_equipo`, `partidos_ganados`, `partidos_perdidos`) VALUES
-(37, 'River', 10, 0),
-(46, 'Boca', 0, 10);
+(54, 'Test', 1, 1),
+(55, 'Test2', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -61,8 +61,10 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`id_jugador`, `nombre_jugador`, `procedencia`, `id_equipo`) VALUES
-(18, 'Baba', 'Tandil', 37),
-(19, 'Caldovich', 'necochea', 37);
+(28, 'Jugador', 'a', 54),
+(29, 'Jugador1', 'b', 55),
+(32, 'Jugador2', 'c', 54),
+(33, 'Jugador3', 'd', 55);
 
 -- --------------------------------------------------------
 
@@ -115,13 +117,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

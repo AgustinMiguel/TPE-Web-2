@@ -13,6 +13,7 @@
                   <th scope="col">Nombre Equipo </th>
                   <th scope="col"> </th>
                   <th scope="col"> </th>
+                  <th scope="col"> </th>
             </tr>
           </thead>
         <tbody class="contenedor-tabla" >
