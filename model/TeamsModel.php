@@ -22,11 +22,11 @@ class TeamsModel {
     public function insertTeam($nombre_equipo,$partidos_ganados,$partidos_perdidos){
         $sentencia = $this->db->prepare("insert into equipos(nombre_equipo, partidos_ganados,partidos_perdidos) VALUES(?,?,?)");
         $sentencia->execute(array($nombre_equipo,$partidos_ganados,$partidos_perdidos));
-    }
+      }
     public function updateTeam($id_equipo,$nombre_equipo,$partidos_ganados,$partidos_perdidos){
-      $sentencia = $this->db->prepare("update equipos set nombre_equipo = ?, partidos_ganados = ?, partidos_perdidos = ? where id_equipo=?");
-      $sentencia->execute(array($nombre_equipo, $partidos_ganados, $partidos_perdidos,$id_equipo,));
-    }
+        $sentencia = $this->db->prepare("update equipos set nombre_equipo = ?, partidos_ganados = ?, partidos_perdidos = ? where id_equipo=?");
+        $sentencia->execute(array($nombre_equipo, $partidos_ganados, $partidos_perdidos,$id_equipo,));
+      }
 
     public function deleteTeam($id_equipo){
         $sentencia = $this->db->prepare("delete from equipos WHERE id_equipo=?");
