@@ -11,11 +11,17 @@ class TeamsController extends NbaController{
   function teamsTable(){
     session_start();
     $login = false;
+    $admin = 0;
     if(isset($_SESSION['user'])){
       $login = true;
     }
+    if(isset($_SESSION['admin'])){
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
+    }
     $equipos = $this->teamsModel->getTeams();
-    $this->view->displayTeams($equipos, $login);
+    $this->view->displayTeams($equipos, $login, $admin);
   }
 
   function insertTeam(){
@@ -38,9 +44,16 @@ class TeamsController extends NbaController{
 
   function editTeam($params = null){
     $this->checkLogIn();
+    $login = false;
+    if(isset($_SESSION['user'])){
+      $login = true;
+    }
+    if($_SESSION['admin']!=0){
+      $admin = true;
+    }
     $id = $params[":ID"];
     $team = $this->teamsModel->getTeam($id);
-    $this->view->editTeam($team);
+    $this->view->editTeam($team,$login,$admin);
   }
 
   function updateTeam(){

@@ -1,7 +1,11 @@
-{if $login eq true}
-  {include file="headerLogout.tpl"}
+{if $admin eq true}
+  {include file="headerAdm.tpl"}
 {else}
-  {include file="header.tpl"}
+  {if $login eq true}
+    {include file="headerLogout.tpl"}
+  {else}
+    {include file="header.tpl"}
+  {/if}
 {/if}
   <body>
   <div class="container-fluid">
@@ -22,7 +26,7 @@
                   <th scope="col">{$player->nombre_jugador}</th>
                   <th scope="col">{$player->procedencia}</th>
                   <th scope="col">{$player->nombre_equipo}</th>
-                  {if $login eq true}
+                  {if $admin eq true}
                   <th scope="col"> <a href="deletePlayer/{$player->id_jugador}">BORRAR</th>
                   <th scope="col"> <a href="editPlayer/{$player->id_jugador}">EDITAR</th>
                   <th scope="col"> <a href="showPlayer/{$player->id_jugador}">VER MAS</th>

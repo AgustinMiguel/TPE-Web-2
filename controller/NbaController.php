@@ -26,14 +26,26 @@ class NbaController {
   function home(){
     session_start();
     $login = false;
+    $admin = false;
     if(isset($_SESSION['user'])){
       $login = true;
     }
-    $this->view->displayHome($this->titulo, $login);
+    if(isset($_SESSION['admin'])){
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
+    }
+    $this->view->displayHome($this->titulo, $login,$admin);
   }
 
-  function admhome(){
+  function loggedHome(){
     $this->checkLogIn();
-    $this->view->displayAdmHome($this->titulo);
+    $admin = false;
+    if(isset($_SESSION['admin'])){
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
+    }
+    $this->view->displayLoggedHome($this->titulo, $admin);
   }
 }

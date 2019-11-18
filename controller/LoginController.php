@@ -19,8 +19,9 @@ class LoginController {
         if (isset($usuario) && $usuario != null && password_verify($password, $usuario->contraseña)){
             session_start();
             $_SESSION['user'] = $usuario->usuario;
+            $_SESSION['admin'] = $usuario->adm;
             $_SESSION['userId'] = $usuario->id;
-            header("Location: " . URL_ADMHOME);
+            header("Location: " . URL_LOGGEDHOME);
         }else{
             header("Location: " . URL_LOGIN);
         }

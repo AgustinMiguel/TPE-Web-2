@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <base href="http://{$smarty.server.SERVER_NAME}{dirname($smarty.server.PHP_SELF)}/" target="">
-
   <title>NBA</title>
 </head>
   <header>
@@ -19,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="" id="botonHome">Home</a>
+          <a class="nav-link" href="admhome" id="botonHome">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="teams" id="botonTabla">Regular Season</a>
@@ -28,10 +27,10 @@
           <a class="nav-link" href="players" id="botonLista">All-Star</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login" id="botonLogin">Login</a>
+          <a class="nav-link" href="logout" id="botonLogout">Logout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="registry" id="botonRegistro">Registrate!</a>
+          <a class="nav-link" href="users" id="usuarios">Usuarios</a>
         </li>
       </ul>
     </div>

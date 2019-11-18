@@ -1,33 +1,30 @@
-{if $admin eq true}
   {include file="headerAdm.tpl"}
-{else}
-  {if $login eq true}
-    {include file="headerLogout.tpl"}
-  {else}
-    {include file="header.tpl"}
-  {/if}
-{/if}
   <body>
   <div class="container-fluid">
     <table class="table table-hover">
       <thead class="thead-dark">
           <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Procedencia</th>
-                  <th scope="col">Id jugador</th>
-                  <th scope="col">Equipo </th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Permisos</th>
+                  <th scope="col"></th>
+                  <th scope="col"> </th>
                   <th scope="col"> </th>
                   <th scope="col"> </th>
                   <th scope="col"> </th>
             </tr>
           </thead>
         <tbody class="contenedor-tabla" >
+          {foreach from=$users item=user}
             <tr>
-                  <th scope="col">{$player->nombre_jugador}</th>
-                  <th scope="col">{$player->procedencia}</th>
-                  <th scope="col">{$player->id_jugador}</th>
-                  <th scope="col">{$player->nombre_equipo}</th>
+                  <th scope="col"> {$user->usuario} </th>
+                  <th scope="col"> {$user->adm} </th>
+                  <th scope="col"> </th>
+                  <th scope="col"> <a href="deleteUser/{$user->id} ">BORRAR</th>
+                  <th scope="col"> <a href="giveAdmin/{$user->id}">DAR PERMISOS</th>
+                  <th scope="col"> <a href="removeAdmin/{$user->id}">QUITAR PERMISOS</th>
+                  <th scope="col">  </th>
             </tr>
+        {/foreach}
       </tbody>
     </table>
   </div>

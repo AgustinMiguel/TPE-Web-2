@@ -1,7 +1,11 @@
-{if $login eq true}
-  {include file="headerLogout.tpl"}
+{if $admin eq true}
+  {include file="headerAdm.tpl"}
 {else}
-{include file="header.tpl"}
+  {if $login eq true}
+    {include file="headerLogout.tpl"}
+  {else}
+    {include file="header.tpl"}
+  {/if}
 {/if}
 <body>
 <div class="row">

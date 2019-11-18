@@ -1,33 +1,49 @@
 <?php
 require_once "./model/TeamsModel.php";
 require_once "./model/PlayersModel.php";
+require_once "./model/ImagenModel.php";
 require_once "./view/PlayersView.php";
+require_once "./view/ImagenView.php";
 class PlayersController extends NbaController{
+  private $playersModel;
+  private $imagenModel;
+  private $imagenView;
   function __construct(){
     $this->playersModel = new PlayersModel();
+    $this->imagenModel = new ImagenModel();
+    $this->imagenView = new ImagenView();
     $this->view = new PlayersView();
     $this->titulo = 'NBA';
   }
-  private $playersModel;
   function playersTable(){
     session_start();
-    $login = false;
+    $admin = false;
+    $login = 0;
     if(isset($_SESSION['user'])){
       $login = true;
     }
+    if(isset($_SESSION['admin'])){
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
+    }
     $players = $this->playersModel->getPlayers();
-    $this->view->displayPlayers($players, $login);
+    $this->view->displayPlayers($players, $login, $admin);
   }
 
   function getTeamPlayers($params = null){
     session_start();
     $login = false;
+    $admin = false;
     if(isset($_SESSION['user'])){
       $login = true;
     }
+    if($_SESSION['admin']!=0){
+      $admin = true;
+    }
     $id = $params[":ID"];
     $players = $this->playersModel->getTeamPlayers($id);
-    $this->view->showTeamPlayers($players,$login);
+    $this->view->showTeamPlayers($players,$login,$admin);
   }
 
   function getOrderedPlayers(){
@@ -36,8 +52,11 @@ class PlayersController extends NbaController{
     if(isset($_SESSION['user'])){
       $login = true;
     }
+    if($_SESSION['admin']!=0){
+      $admin = true;
+    }
     $players = $this->playersModel->getOrderedPlayers();
-    $this->view->displayPlayers($players, $login);
+    $this->view->displayPlayers($players, $login, $admin);
   }
 
   function insertPlayer(){
@@ -59,29 +78,40 @@ class PlayersController extends NbaController{
 
   function editPlayer($params = null){
     $this->checkLogIn();
-    $id = $params[":ID"];
-    $player = $this->playersModel->getPlayer($id);
-    $this->view->editPlayer($player);
+    $login = false;
+    if(isset($_SESSION['user'])){
+      $login = true;
+    }
+    if($_SESSION['admin']!=0){
+      $admin = true;
+      $id = $params[":ID"];
+      $player = $this->playersModel->getPlayer($id);
+      $this->view->editPlayer($player,$login,$admin);
+    }
   }
 
   function updatePlayer(){
     $this->checkLogIn();
     $nombre_jugador = $_POST['nombre_jugador'];
     $procedencia = $_POST['procedencia'];
-    if(($nombre_jugador != "")&&($procedencia != "")){
+    if(($nombre_jugador != "")&&($procedencia != "")&&($_SESSION['admin']!=0)){
       $this->playersModel->updatePlayer($_POST['id_jugador'],$nombre_jugador,$procedencia);
+    }
+    header("Location: " . URL_PLAYERS);
   }
-  header("Location: " . URL_PLAYERS);
-}
 
-function showPlayer($params = null){
-  $id = $params[":ID"];
-  session_start();
-  $login = false;
-  if(isset($_SESSION['user'])){
-    $login = true;
+  function showPlayer($params = null){
+    $id = $params[":ID"];
+    session_start();
+    $login = false;
+    $admin = false;
+    if(isset($_SESSION['user'])){
+      $login = true;
+    }
+    if($_SESSION['admin']!=0){
+      $admin = true;
+    }
+    $player = $this->playersModel->getPlayer($id);
+    $this->view->showPlayer($player,$login,$admin);
   }
-  $player = $this->playersModel->getPlayer($id);
-  $this->view->showPlayer($player,$login);
-}
 }
