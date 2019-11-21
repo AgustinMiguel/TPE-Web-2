@@ -22,22 +22,24 @@ public function displayPlayers($players,$login, $admin){
     $smarty->assign('admin',$admin);
     $smarty->display('templates/editPlayer.tpl');
 }
-public function showTeamPlayers($players,$login,$admin){
+public function showTeamPlayers($players,$login,$admin,$img){
     $smarty = new Smarty();
     $smarty->assign('Titulo',"Tabla Jugadores");
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('players',$players);
     $smarty->assign('login',$login);
+    $smarty->assign('img',$img);
     $smarty->assign('admin',$admin);
     $smarty->display('templates/showTeamPlayers.tpl');
 }
-public function showPlayer  ($player, $login, $admin){
+public function showPlayer  ($player, $login, $admin, $img){
   $smarty = new Smarty();
   $smarty->assign('Titulo',"Jugador");
   $smarty->assign('BASE_URL',BASE_URL);
   $smarty->assign('player',$player);
   $smarty->assign('login',$login);
-      $smarty->assign('admin',$admin);
+  $smarty->assign('img',$img);
+  $smarty->assign('admin',$admin);
   $smarty->display('templates/showPlayer.tpl');
   }
 }

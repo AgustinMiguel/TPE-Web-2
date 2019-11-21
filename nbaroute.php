@@ -16,7 +16,6 @@ define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"
 define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 define("URL_REGISTRY", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registry');
 define("URL_USERS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/users');
-
 $resource = $_GET["resource"];
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -43,6 +42,8 @@ $router->addRoute("deletePlayer/:ID", "GET", "PlayersController", "deletePlayer"
 $router->addRoute("editPlayer/:ID", "GET", "PlayersController", "editPlayer");
 $router->addRoute("uploadImagenPlayer", "POST", "ImagenController", "uploadImagenPlayer");
 $router->addRoute("uploadImagenTeam", "POST", "ImagenController", "uploadImagenTeam");
+$router->addRoute("deleteImagenPlayer/:ID", "GET", "ImagenController", "deleteImagenPlayer");
+$router->addRoute("deleteImagenTeam/:ID", "GET", "ImagenController", "deleteImagenTeam");
 $router->addRoute("showPlayer/:ID", "GET", "PlayersController", "showPlayer");
 $router->addRoute("updatePlayer", "POST", "PlayersController", "updatePlayer");
 $router->addRoute("login", "GET", "LoginController", "login");

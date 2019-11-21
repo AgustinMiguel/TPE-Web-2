@@ -20,6 +20,25 @@ class ImagenController extends NbaController{
     header("Location: " . URL_PLAYERS);
   }
 
+  public function deleteImagenPlayer($params = null){
+      $this->checkLogIn();
+      if($_SESSION['admin']!=0){
+      $id = $params[":ID"];
+      $this->imagenModel->deleteImagenPlayer($id);
+      }
+      header("Location: " . URL_PLAYERS);
+    }
+
+    public function deleteImagenTeam($params = null){
+        $this->checkLogIn();
+        if($_SESSION['admin']!=0){
+        $id = $params[":ID"];
+        $this->imagenModel->deleteImagenTeam($id);
+        }
+        header("Location: " . URL_TEAMS);
+      }
+
+
   function uploadImagenTeam(){
     $this->checkLogIn();
     if($_SESSION['admin']!=0){

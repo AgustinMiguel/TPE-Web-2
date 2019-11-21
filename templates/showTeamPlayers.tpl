@@ -38,7 +38,12 @@
       </tbody>
     </table>
   </div>
-
+  <div class="container-fluid">
+    {foreach from=$img item= imagen}
+      <img src="{$imagen->url}" class="img-fluid" width="100" height="100" alt="Responsive image">
+      <a href="deleteImagenTeam/{$imagen->id_imagen}">BORRAR
+    {/foreach}
+  </div>
   <form method="get" action="orderPlayers" enctype="multipart/form-data">
     <button type="submit" class="btn btn-dark">Ordenar Jugadores</button>
   </form>

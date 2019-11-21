@@ -29,7 +29,6 @@
                   {if $admin eq true}
                   <th scope="col"> <a href="deletePlayer/{$player->id_jugador}">BORRAR</th>
                   <th scope="col"> <a href="editPlayer/{$player->id_jugador}">EDITAR</th>
-                  <th scope="col"> <a href="addImagenPlayer/{$player->id_jugador}">AGREGAR IMAGEN</th>
                   {/if}
                   <th scope="col"> <a href="showPlayer/{$player->id_jugador}">VER MAS</th>
             </tr>

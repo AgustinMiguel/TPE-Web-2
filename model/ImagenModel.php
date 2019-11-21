@@ -12,8 +12,14 @@ public function uploadImagenPlayer($id, $imagen){
   $sentencia->execute(array($id,$filepath));
 }
 
-public function deleteImagenPlayer($id){
-  //delete imagen con el id
+public function deleteImagenPlayer($id_imagen){
+  $sentencia = $this->db->prepare("delete from jugadoresimg WHERE id_imagen=?");
+  $sentencia->execute(array($id_imagen));
+}
+
+public function deleteImagenTeam($id_imagen){
+  $sentencia = $this->db->prepare("delete from equiposimg WHERE id_imagen=?");
+  $sentencia->execute(array($id_imagen));
 }
 
 public function uploadImagenTeam($id, $imagen){
@@ -27,4 +33,17 @@ private function moveFile($imagen) {
     move_uploaded_file($imagen['tmp_name'], $filepath);
     return $filepath;
   }
+public function getImagenPlayer($id){
+        $sentencia = $this->db->prepare( "select * from jugadoresimg where id_jugador = ?");
+        $sentencia->execute(array($id));
+        $img = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $img;
+  }
+
+  public function getImagenTeam($id){
+          $sentencia = $this->db->prepare( "select * from equiposimg where id_equipo = ?");
+          $sentencia->execute(array($id));
+          $img = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          return $img;
+    }
 }

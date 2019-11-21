@@ -37,13 +37,14 @@ class PlayersController extends NbaController{
     $admin = false;
     if(isset($_SESSION['user'])){
       $login = true;
-    }
-    if($_SESSION['admin']!=0){
-      $admin = true;
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
     }
     $id = $params[":ID"];
+    $img = $this->imagenModel->getImagenTeam($id);
     $players = $this->playersModel->getTeamPlayers($id);
-    $this->view->showTeamPlayers($players,$login,$admin);
+    $this->view->showTeamPlayers($players,$login,$admin,$img);
   }
 
   function getOrderedPlayers(){
@@ -71,8 +72,10 @@ class PlayersController extends NbaController{
 
   function deletePlayer($params = null){
     $this->checkLogIn();
+    if($_SESSION['admin']!=0){
     $id = $params[":ID"];
     $this->playersModel->deletePlayer($id);
+    }
     header("Location: " . URL_PLAYERS);
   }
 
@@ -107,11 +110,12 @@ class PlayersController extends NbaController{
     $admin = false;
     if(isset($_SESSION['user'])){
       $login = true;
-    }
-    if($_SESSION['admin']!=0){
-      $admin = true;
+      if($_SESSION['admin']!=0){
+        $admin = true;
+      }
     }
     $player = $this->playersModel->getPlayer($id);
-    $this->view->showPlayer($player,$login,$admin);
+    $img = $this->imagenModel->getImagenPlayer($id);
+    $this->view->showPlayer($player,$login,$admin,$img);
   }
 }

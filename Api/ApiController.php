@@ -3,6 +3,7 @@
 abstract class ApiController {
     protected $teamsModel;
     protected $playersModel;
+    protected $commentsModel;
     protected $view;
     private $data;
 
@@ -11,6 +12,7 @@ abstract class ApiController {
         $this->data = file_get_contents("php://input");
         $this->teamsModel = new TeamsModel();
         $this->playersModel = new PlayersModel();
+        $this->commentsModel = new CommentsModel();
     }
 
     function getData(){

@@ -1,6 +1,7 @@
 <?php
 require_once("Router.php");
 require_once("api/ApiNbaController.php");
+require_once("api/ApiCommentsController.php");
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
@@ -24,7 +25,9 @@ $router->addRoute("players/:ID", "GET", "ApiNbaController", "getPlayer");
 $router->addRoute("players/:ID", "DELETE", "ApiNbaController", "deletePlayer");
 $router->addRoute("players", "POST", "ApiNbaController", "addPlayer");
 $router->addRoute("players/:ID", "PUT", "ApiNbaController", "updatePlayer");
-
+$router->addRoute("comment/:ID", "GET", "ApiCommentsController", "getComments");
+$router->addRoute("comment/:ID", "DELETE", "ApiCommentsController", "deleteComment");
+$router->addRoute("comment", "POST", "ApiCommentsController", "addComment");
 
 // rutea
 $router->route($resource, $method);
