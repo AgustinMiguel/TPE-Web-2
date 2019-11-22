@@ -19,8 +19,8 @@ class CommentsModel{
 
   public function getComments($id_jugador)
   {
-    $sentencia = $this->db->prepare( "select * from comentarios C join usuarios U on C.id_usuario = U.id_usuario where C.id_jugador=?");
-    $sentencia->execute();
+    $sentencia = $this->db->prepare( "select * from comentarios C join usuarios U on C.id_usuario = U.id where id_jugador=?");
+    $sentencia->execute(array($id_jugador));
     $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     return $comentarios;
   }
