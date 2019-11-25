@@ -41,7 +41,9 @@
   <div class="container-fluid">
     {foreach from=$img item= imagen}
       <img src="{$imagen->url}" class="img-fluid" width="100" height="100" alt="Responsive image">
-      <a href="deleteImagenTeam/{$imagen->id_imagen}">BORRAR
+      {if $admin eq true}
+        <a href="deleteImagenTeam/{$imagen->id_imagen}">BORRAR
+      {/if}
     {/foreach}
   </div>
   <form method="get" action="orderPlayers" enctype="multipart/form-data">

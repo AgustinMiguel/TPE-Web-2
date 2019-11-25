@@ -32,7 +32,7 @@ public function showTeamPlayers($players,$login,$admin,$img){
     $smarty->assign('admin',$admin);
     $smarty->display('templates/showTeamPlayers.tpl');
 }
-public function showPlayer  ($player, $login, $admin, $img){
+public function showPlayer  ($player, $login, $admin, $img, $usuario){
   $smarty = new Smarty();
   $smarty->assign('Titulo',"Jugador");
   $smarty->assign('BASE_URL',BASE_URL);
@@ -40,6 +40,7 @@ public function showPlayer  ($player, $login, $admin, $img){
   $smarty->assign('login',$login);
   $smarty->assign('img',$img);
   $smarty->assign('admin',$admin);
+  $smarty->assign('usuario',$usuario);
   $smarty->display('templates/showPlayer.tpl');
   }
 }

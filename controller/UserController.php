@@ -39,8 +39,10 @@ class UserController extends NbaController{
       $hash = password_hash($password, PASSWORD_DEFAULT);
       $admin = 0;
       $this->userModel->insertUser($usuario, $admin, $mail, $hash);
-      $_SESSION['user'] = $usuario;
-      $_SESSION['admin'] = 0;
+      $user = $this->model->getPassword($usuario); //Esto lo pedo arreglar con un lastInsertId (Preguntar)
+      $_SESSION['user'] = $usuario->usuario;
+      $_SESSION['admin'] = $usuario->adm;
+      $_SESSION['userId'] = $usuario->id;
       header("Location: " . URL_LOGGEDHOME);
     }
     else{

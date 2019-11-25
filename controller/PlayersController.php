@@ -108,14 +108,16 @@ class PlayersController extends NbaController{
     session_start();
     $login = false;
     $admin = false;
+    $id_usuario=0;
     if(isset($_SESSION['user'])){
       $login = true;
+      $id_usuario = $_SESSION['userId'];
       if($_SESSION['admin']!=0){
         $admin = true;
       }
     }
     $player = $this->playersModel->getPlayer($id);
     $img = $this->imagenModel->getImagenPlayer($id);
-    $this->view->showPlayer($player,$login,$admin,$img);
+    $this->view->showPlayer($player,$login,$admin,$img,$id_usuario);
   }
 }

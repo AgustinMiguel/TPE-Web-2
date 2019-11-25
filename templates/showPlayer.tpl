@@ -34,13 +34,27 @@
   <div class="container-fluid">
     {foreach from=$img item= imagen}
       <img src="{$imagen->url}" class="img-fluid" width="100" height="100" alt="Responsive image">
-      <a href="deleteImagenPlayer/{$imagen->id_imagen}">BORRAR
+      {if $admin eq true}
+        <a href="deleteImagenPlayer/{$imagen->id_imagen}">BORRAR
+      {/if}
     {/foreach}
   </div>
+  <div class="container-fluid">
+    {include file="vue/comments-list.tpl"}
+    {if $login eq true}
+    <form id="comments-form" action="insert" method="post">
+      <input type="hidden" name="id_jugador" placeholder="jugador" value="{$player->id_jugador}">
+      <input type="hidden" name="id_usuario" placeholder="usuario" value="{$usuario}">
+      <input type="text" name="texto" placeholder="texto">
+      <input type="number" name="puntuacion" max="5">
+      <input type="submit" value="insert">
+    </form>
+    {/if}
+  </div>
+  <script src="js/comentarios.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  <script src="js/our.js" charset="utf-8"></script>
 </body>
 </html>
 {include file='footer.tpl'}
