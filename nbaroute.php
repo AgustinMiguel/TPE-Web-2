@@ -50,6 +50,7 @@ $router->addRoute("login", "GET", "LoginController", "login");
 $router->addRoute("logout", "GET", "LoginController", "logout");
 $router->addRoute("startSesion", "POST", "LoginController", "startSesion");
 $router->addRoute("users", "GET", "UserController", "usersTable");
+$router->addRoute("recoverPass", "POST", "UserController", "recoverPass");
 $router->setDefaultRoute("NbaController", "home");
 
 $router->route($resource, $method);

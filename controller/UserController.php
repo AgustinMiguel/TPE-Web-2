@@ -76,4 +76,8 @@ class UserController extends NbaController{
     }
     header("Location: " . URL_USERS);
   }
+
+  public function recoverPass($params = null){
+    //nuevo template que pida usuario y mail, los verifica, crea una password random, la setea en la db y la envia por mail
+  }
 }

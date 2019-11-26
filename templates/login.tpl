@@ -11,5 +11,8 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <form action="recoverPass" method="post">
+
+    </form>
     </div>
 {include file="footer.tpl"}
