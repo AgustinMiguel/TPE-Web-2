@@ -40,8 +40,8 @@
     {/foreach}
   </div>
   <div class="container-fluid">
-    {include file="vue/comments-list.tpl"}
     {if $login eq true}
+    {include file="vue/comments-list.tpl"}
     <form id="comments-form" action="insert" method="post">
       <input type="hidden" name="id_jugador" placeholder="jugador" value="{$player->id_jugador}">
       <input type="hidden" name="id_usuario" placeholder="usuario" value="{$usuario}">
