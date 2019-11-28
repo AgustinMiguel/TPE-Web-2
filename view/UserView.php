@@ -17,4 +17,10 @@ class UserView {
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->display('templates/registry.tpl');
   }
+  function displayRecuperator(){
+    $smarty = new Smarty();
+    $smarty->assign('Titulo',"Recupera tu contraseña");
+    $smarty->assign('BASE_URL',BASE_URL);
+    $smarty->display('templates/recovery.tpl');
+  }
 }

@@ -78,4 +78,10 @@ class UserModel {
       $sentencia = $this->db->prepare("update usuarios set adm = 0 where id=?");
       $sentencia->execute(array($id));
     }
+
+    public function insertPassword($password, $usuario)
+    {
+      $sentencia = $this->db->prepare("update usuarios set contraseña = ? where usuario=?");
+      $sentencia->execute(array($password, $usuario));
+    }
 }

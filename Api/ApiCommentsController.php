@@ -38,6 +38,8 @@ public function addComment()
   $texto = $body->texto;
   $puntuacion = $body->puntuacion;
   $fecha = $body->fecha;
-  $comment = $this->commentsModel->addComment($id_jugador,$id_usuario,$texto,$puntuacion,$fecha);
+  if(($texto != "")&&($id_jugador != "")&&($id_usuario != "")&&($puntuacion != "")){
+    $comment = $this->commentsModel->addComment($id_jugador,$id_usuario,$texto,$puntuacion,$fecha);
+  }
 }
 }

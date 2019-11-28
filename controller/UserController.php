@@ -76,8 +76,24 @@ class UserController extends NbaController{
     }
     header("Location: " . URL_USERS);
   }
+public function forgotPass($params = null){
+  $this->view->displayRecuperator();
+}
+ function generatePass()
+{
+  $pass = 0;
+
+  return $pass;
+}
 
   public function recoverPass($params = null){
-    //nuevo template que pida usuario y mail, los verifica, crea una password random, la setea en la db y la envia por mail
+    $usuario = $_POST['usuario'];
+    $mail = $_POST['mail'];
+    if(($this->userModel->verifyUser($usuario) == true)&&($this->userModel->verifyMail($mail)== true)){
+      $pass = rand();
+      $hash = password_hash($pass, PASSWORD_DEFAULT);
+      $this->userModel->insertPassword($hash,$usuario);
+      //mail("agustinmiguel96@gmail.com","recupera pass", $pass);
+    }
   }
 }

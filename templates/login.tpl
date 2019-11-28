@@ -11,8 +11,11 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
-    <form action="recoverPass" method="post">
-
+    <form method="post" action="forgotPass">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Olvidaste tu contraseña?</button>
+      </div>
     </form>
     </div>
+
 {include file="footer.tpl"}
